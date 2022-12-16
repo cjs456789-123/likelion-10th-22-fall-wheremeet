@@ -6,15 +6,16 @@
 ---
 
 ### :pencil2: PM & Design
-#### 안은지(팀장)
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;안은지(팀장)
 
 
 ### :art: FrontEnd
-#### 고채원 &nbsp; 김다희 &nbsp;  이유진 &nbsp;  황지현
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고채원 &nbsp; 김다희 &nbsp;  이유진 &nbsp;  황지현
 
 
 ### :rocket: Backend
-#### 양동현 &nbsp; 이희병
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;양동현 &nbsp; 이희병
 
 ---
 
@@ -24,20 +25,20 @@
 ##### :pencil2: PM & Design
 
 
-##### Figma
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Figma
 
 
 ##### :art: FrontEnd
 
 
-##### javascript &nbsp; html &nbsp; css
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;javascript &nbsp; html &nbsp; css
 
 
 
 ##### :rocket: Backend
 
 
-##### python &nbsp; django &nbsp; db.sqlite3 &nbsp; mariaDB
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;python &nbsp; django &nbsp; db.sqlite3 &nbsp; mariaDB
 
 ---
 ### PM & Design
