@@ -1,0 +1,114 @@
+
+
+.intro {
+    float: left;
+    margin: 0px;
+    margin-bottom: 15px;
+    color: rgba(7,42,96);
+    font-weight: bolder;
+}
+
+.filter-button {
+    float: right;
+}
+
+.chooseUserButton {
+    display: inline-block;
+    border: none;
+    background-color: white;
+    color: #7C7A7A;
+    width: 80px;    
+    padding: auto;
+    margin-bottom: 0px;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.chooseTableButton {
+    display: inline-block;
+    border: none;
+    background-color: white;
+    color: #7C7A7A;
+    width: 80px;    
+    padding: auto;
+    margin: 0;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.filterName {
+    font-size: 12px;
+    font-weight: bold;
+}
+.filterName, p {
+    margin-bottom: 17px;
+}
+
+.hidden {
+    display: none;
+}
+
+.checkbox {
+    margin-left: 7px;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    accent-color: rgb(255,108,15);
+}
+
+.chooseOthers1 {
+    margin: 12px;
+}
+.chooseOthers2 {
+    margin: 18px;
+}
+
+.filterSection {
+    border-bottom: #7C7A7A solid 0.5px;
+    padding-bottom: 15px;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+.filterSection-last {
+    padding-bottom: 10px;
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+.bar{
+    height: 30px;
+    width: 100%;
+    background-color: #EFEFEF;
+    vertical-align: middle;
+    position: absolute;
+}
+
+.barbutton {
+    border: none;
+    background-color: #EFEFEF;
+    vertical-align: middle;
+    height: 30px;
+    font-weight: bolder;
+    font-size: 12px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    position: relative;
+}
+
+.cancel {
+    margin-left: 10px;
+}
+.reset {
+    float: right;
+    margin-right: 50px;
+}
+.apply {
+    float: right;
+    margin-right: 10px;
+    color: #FF6C0F;
+}

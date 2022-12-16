@@ -1,0 +1,171 @@
+header{
+    background-color: white;
+    margin:0;
+    padding: 5px;
+}
+
+
+h1{
+    color: rgb(141,198,63);
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+    margin:7px;
+    margin-top:30px;
+}
+
+h3{
+    color: rgb(7,42, 96);
+    margin:5px;
+}
+
+.logo{
+    width:20px;
+    height:25px;
+}
+
+h6{
+    margin:0;
+    margin-left:5px;
+}
+
+
+.mainbody{
+    background-color: #F4F4F4;
+    margin:0;
+}
+
+hr{
+   border: solid 1px rgb(141,198,63);
+   margin: 0;
+   
+}
+.btn{
+    border:0;
+    background-color: white;
+
+}
+/* ::placeholder{
+    text-align: center;
+
+} */
+
+
+.serach{
+    position: relative;
+    width: 200px;
+    text-align:center;
+    margin-left:500px;
+}
+.logo{
+    width:38px;
+    object-fit: cover;
+    margin-left:8px;
+}
+.search-icon{
+    position:absolute;
+    width:17px;
+    height:17px;
+    top:6px;
+    left:67px;    
+}
+.search-bar{
+    width:280px;
+    border:none;
+    border-right:0px;
+    border-top:0px;
+    border-left:0px;
+    border-bottom:0px;
+    margin-left:10px;
+}
+
+/* select{
+    width:60px;
+    padding:2px;
+    border: 1px solid black;
+    border-radius: 0.3em;
+} */
+
+
+
+.choiceCon{
+    height:30px;
+    width:310px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 2px;
+}
+
+.choice{
+    font-size:small;
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 1px;
+    padding-left:3px;
+    padding-right:3px;
+    margin:1px;
+}
+
+
+
+.content{
+    background-color: white;
+    width: 37%;
+    height: 277px;
+    border: 1px solid #D9D9D9; 
+    border-radius: 1em;
+    padding: 10px;
+    margin:13px;
+}
+
+
+.main{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mainContent{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.category{
+    color:black;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+.categoryName{
+    color:black;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+.listup-filter-bar{
+    display:block;
+    position: relative;
+}
+.listup-filter{
+    position: absolute;
+    right:10px;
+    top: 0px; 
+
+}
+.filter-bar{
+    position: relative;
+
+}
+
+.filter{
+    position:absolute;
+    right:10px;
+
+}
+.filterimg{
+
+    width:50px;
+}
+

@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHERE MEET</title>
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static './css/content.css' %}">
+    <!-- <link rel="stylesheet" htref="./js/main.js"> -->
+</head>
+
+<body class="mainbody">
+
+<header>
+        <div style="float:left">
+            <a href="{% url 'main' %}">
+                <img src="{% static 'img/logo.png' %}" class="logo">
+            </a>
+        </div>
+        <div class="search" style="float:right">
+            <form class="d-flex" method="POST" action="{% url 'search' %}">
+            {% csrf_token %} 
+            <input type="search" placeholder="장소명" name="searched" class="search-bar">
+            <img class="search-icon" src="{% static './img/searchIcon.png' %}">
+            </form>
+        </div> 
+    <div>
+        <h1>WHERE MEET</h1>
+    </div>
+    <div>
+        <h3>성대 고인물의 숨겨진 미팅 맛집</h3>
+    </div>
+    <div class="listup-filter-bar" style="text-align: center">
+        <div class="choiceCon" id="filter-container">
+            <!-- <span class="choice">1인</span>
+            <span class="choice">2~4인</span>
+            <span class="choice">사각형</span>
+            <span class="choice">콘센트</span>
+            <span class="choice">미팅룸</span>
+            <span class="choice">화상회의</span>
+            <span class="choice">흡연실</span> -->
+            </div>
+        <span class="listup-filter" style="display:inline;">
+            <!-- <button class="btn" id="btn"type="submit" ><img onclick="함수명" src="./img/filter.png" width:100px; style="display:inline-block; vertical-align:middle"></button> -->
+            <a href={% url 'filter_on' %}>
+                <img class="filterimg" id="filter" src="{% static './img/filter.png' %}" style="display:inline-block; vertical-align:middle" >
+            </a>
+        </span>      
+           
+    </div>
+      
+        
+    </div>
+   
+</header>
+<hr>
+<main>
+    <div class="main" id="main">
+        {% if listupDatas %}
+            {% for listupData in listupDatas %}
+                <div class="content">
+                    <div>
+                        <h3 class="placeName">{{listupData.name}}</h3>
+                    </div>
+                    <a class="placePhoto" href="{{listupData.url}}">
+                        <img class="cafeimg" src="{% static 'img/cafe.jpeg' %}" alt="">
+                    </a>
+                    <div>
+                        <h5 class="placeKeyword">#화상회의 #스터디 #팀플 #야간 #디저트</h5>
+                    </div>
+                    <div>
+                    {% for meetingplace in meetingplace_information %}
+                        {% if meetingplace.id == listupData.id %}
+                            <h5 class="placeTime">{{meetingplace.open_close}}</h5>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                    <div>
+                    {% for meetingplace in meetingplace_information %}
+                        {% if meetingplace.id == listupData.id %}
+                            <h6 class="placeDistance">{{meetingplace.distance}}m</h6> 
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+
+        {% else%}        <!-- 검색창에 아무것도 입력하지 않았을 경우 뜨는 메시지입니다. -->
+            <h2> 해당 결과가 존재하지 않습니다. 다시 시도해주세요! </h2>
+        {% endif %}
+    </div>
+</main>
+
+
+
+</body>
+
+{% comment %} <script src="{% static 'js/listup.js' %}"></script> <!-- 검색으로 리스트업한 페이지엔 필터바 없애기 --> {% endcomment %}
+
+<script>
+    const filters=['1인', '2~4인', '5인 이상','원형','사각형', '창가석/벽좌석','좌식','콘센트','화상회의','미팅룸','흡연실']
+
+    const createFilterEle=(filter)=>{
+        const filterEle=document.createElement("span");
+        filterEle.classList.add('choice');
+        const textEle=document.createTextNode(filter);
+        filterEle.appendChild(textEle);
+        return filterEle
+    };
+
+    const rootEle=document.getElementById('filter-container');
+
+    filters.forEach(filter => {
+        const filterEle = createFilterEle(filter);
+        rootEle.appendChild(filterEle);
+    })
+
+</script>
+
+
+</html>

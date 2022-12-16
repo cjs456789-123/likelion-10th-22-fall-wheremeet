@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHERE MEET</title>
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static './css/content.css' %}">
+
+    <!-- <link rel="stylesheet" htref="./js/main.js"> -->
+    <link rel="stylesheet" href="{% static './js/content.js' %}">
+
+    <!-- </script> -->
+
+</head>
+
+<body class="mainbody">
+
+    <header>
+        <div style="float:left">
+            <a href="{% url 'main' %}">
+                <img src="{% static 'img/logo.png' %}" class="logo">
+            </a>
+        </div>
+        <div class="search" style="float:right">
+            <form class="d-flex" method="POST" action="{% url 'search' %}">
+            {% csrf_token %} 
+            <input type="search" placeholder="장소명" name="searched" class="search-bar">
+            <img class="search-icon" src="{% static './img/searchIcon.png' %}">
+            </form>
+        </div> 
+    <div>
+        <h1>WHERE MEET</h1>
+    </div>
+    <div class="filter-bar">
+        <span>
+            <h3 style="display:inline;">성대 고인물의 숨겨진 미팅 맛집</h3>
+        </span>
+        <span class="filter" style="display:inline;">
+            <!-- <button class="btn" id="btn"type="submit" ><img onclick="함수명" src="./img/filter.png" width:100px; style="display:inline-block; vertical-align:middle"></button> -->
+            <a href="{% url 'filter_on' %}">
+                <img class="filterimg" id="filter" src="{% static 'img/filter.png' %}" style="display:inline-block; vertical-align:middle">
+            </a>
+            <!-- <img class="filterimg" id="filterOn" src="{% static 'img/filterOn.png' %}"style="display:inline-block; vertical-align:middle"> -->
+        </span>       
+    </div>
+      
+   
+    </header>
+    <hr>
+    <main>
+        <!-- <div id="main">
+        </div> -->
+        <h3 class="category" id="category">
+            <h3 class="categoryName">교내 라운지</h3>
+        <div class="mainContent" id="mainContent">
+            {% for nearLounge in nearLounges %}
+                <div class="content">
+                    <div>
+                        <h3 class="placeName">{{nearLounge.name}}</h3>
+                    </div>
+                    <a class="placePhoto" href="{{nearLounge.url}}">
+                        <img class="cafeimg" src="{% static './img/cafe.jpeg' %}" alt="">
+                    </a>
+                    <div>
+                        <h5 class="placeKeyword">#화상회의 #스터디 #팀플 #야간 #디저트</h5>
+                    </div>
+                    <div>
+                        <h5 class="placeTime">{{nearLounge.open_close}}</h5>
+                    </div>
+                    <div>
+                        <h6 class="placeDistance">{{nearLounge.distance}}m</h6> 
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h3 class="category" id="category">
+            <h3 class="categoryName">교내 카페</h3>
+        <div class="mainContent" id="mainContent">
+            {% for nearInCafe in nearInCafes %}
+                <div class="content">
+                    <div>
+                        <h3 class="placeName">{{nearInCafe.name}}</h3>
+                    </div>
+                    <a class="placePhoto" href="{{nearInCafe.url}}">
+                        <img class="cafeimg" src="{% static './img/cafe.jpeg' %}" alt="">
+                    </a>
+                    <div>
+                        <h5 class="placeKeyword">#화상회의 #스터디 #팀플 #야간 #디저트</h5>
+                    </div>
+                    <div>
+                        <h5 class="placeTime">{{nearInCafe.open_close}}</h5>
+                    </div>
+                    <div>
+                        <h6 class="placeDistance">{{nearInCafe.distance}}m</h6> 
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h3 class="category" id="category">
+            <h3 class="categoryName">교외 카페</h3>
+        <div class="mainContent" id="mainContent">
+            {% for nearOutCafe in nearOutCafes %}
+                <div class="content">
+                    <div>
+                        <h3 class="placeName">{{nearOutCafe.name}}</h3>
+                    </div>
+                    <a class="placePhoto" href="{{nearOutCafe.url}}">
+                        <img class="cafeimg" src="{% static './img/cafe.jpeg' %}" alt="">
+                    </a>
+                    <div>
+                        <h5 class="placeKeyword">#화상회의 #스터디 #팀플 #야간 #디저트</h5>
+                    </div>
+                    <div>
+                        <h5 class="placeTime">{{nearOutCafe.open_close}}</h5>
+                    </div>
+                    <div>
+                        <h6 class="placeDistance">{{nearOutCafe.distance}}m</h6> 
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+</body>
+
+<script>
+    $(document).ready(function(){
+        $("#filter").show();
+        $("#filterOn").hide();
+
+        $("#filter").click(function(){
+            $("#filter").hide();
+            $("#filterOn").show();
+        });
+
+        $("#filterOn").click(function(){
+            $("#filter").show();
+            $("#filterOn").hide();
+        });
+    });
+</script>
+<!-- <script src="{% static 'js/maincontent.js' %}"></script> -->
+
+    
+</html>

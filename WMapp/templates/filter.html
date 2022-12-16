@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHERE MEET</title>
+    <link rel="stylesheet" href="{% static 'css/style_filter.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static './js/content.js' %}"> <!-- 삭제? -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous">
+    </script>
+</head>
+
+<body style="margin:0px">
+    <header>
+        <div style="float:left">
+            <a href="{% url 'main' %}">
+                <img src="{% static './img/logo.png' %}" class="logo">
+            </a>
+        </div>
+        <div class="search" style="float:right">
+            <form class="d-flex" method="POST" action="{% url 'search' %}">
+            {% csrf_token %} 
+            <input type="search" placeholder="장소명" name="searched" class="search-bar">
+            <img class="search-icon" src="{% static './img/searchIcon.png' %}">
+            </form>
+        </div> 
+    <div>
+        <h1>WHERE MEET</h1>
+    </div>
+    <div class="filter-bar">
+        <span>
+            <h3 style="display:inline;">성대 고인물의 숨겨진 미팅 맛집</h3>
+        </span>
+        <span class="filter" style="display:inline;">
+            <!-- <button class="btn" id="btn"type="submit" ><img onclick="함수명" src="./img/filter.png" width:100px; style="display:inline-block; vertical-align:middle"></button> -->
+            <img class="filterimg" id="filter" src="{% static 'img/filter.png' %}" style="display:inline-block; vertical-align:middle" onclick="location.href='filter.html'">
+            <a href= "javascript:history.back();">
+                <img class="filterimg" id="filterOn" src="{% static 'img/filterOn.png' %}"style="display:inline-block; vertical-align:middle">
+            </a>
+        </span>      
+
+    </div>
+      
+   
+</header>
+<hr>
+
+    <div class="bar">
+        <span>
+            <a href= "javascript:history.back();">              <!-- 뒤로 가기 -->
+                <button class="barbutton cancel">취소</button>
+            </a>
+        </span>
+        <span>
+            <a href= {% url 'filter_on' %}>
+                <button class="barbutton reset" onclick="reset()">
+                <img src="{% static 'img/refresh-button.svg' %}" style="vertical-align:bottom;">
+                <div style="display:inline;">초기화</div>
+                </button>
+            </a>
+        </span>
+    </div>
+    
+    <form action="/map_filtered/" method="GET">
+        <button class="barbutton apply">적용</button>
+        
+        <br>
+        <div class="filter_contents" style="text-align:center;">
+            <div class="filterSection">
+                <p class="filterName">인원</p>
+                
+                <label class="chooseUserButton">      
+                    <input type="checkbox" onclick="changeColor1(this)" name="people" class="hidden"  id="good" value="1">
+                    <img id="user-01" src="{% static 'img/user-01.svg' %}" alt="1" width="32" height="32">
+                    <br><span class="filterName each">1인</span>
+                </label>
+                <label class="chooseUserButton">      
+                    <input type="checkbox" onclick="changeColor2(this)" name="people" class="hidden" value="2">
+                    <img id="user-02" src="{% static 'img/user-02.svg' %}" alt="234" width="32" height="32">
+                    <br><span class="filterName each">2~4인</span>
+                </label>
+                <label class="chooseUserButton">      
+                    <input type="checkbox" onclick="changeColor3(this)" name="people" class="hidden" value="3">
+                    <img id="user-03" src="{% static 'img/user-03.svg' %}" alt="5" width="32" height="32">
+                    <br><span class="filterName each">5인 이상</span>
+                </label>
+            </div>
+
+            <div class="filterSection">
+                <p class="filterName">테이블 유형</p>
+
+                <label class="chooseTableButton">      
+                    <input type="checkbox" onclick="changeColor4(this)" name="seat" class="hidden" value="1">
+                    <img id="circle" src="{% static 'img/circle.svg' %}" alt="1" width="32" height="32">
+                    <br><span class="filterName each">원형</span>
+                </label>
+                <label class="chooseTableButton">      
+                    <input type="checkbox" onclick="changeColor5(this)" name="seat" class="hidden" value="2">
+                    <img id="square" src="{% static 'img/square.svg' %}" alt="234" width="32" height="32">
+                    <br><span class="filterName each">사각형</span>
+                </label>
+                <label class="chooseTableButton">      
+                    <input type="checkbox" onclick="changeColor6(this)" name="seat" class="hidden" value="3">
+                    <img id="left-seat" src="{% static 'img/left-seat.svg' %}" alt="5" width="32" height="32">
+                    <br><span class="filterName each">창가석/벽좌석</span>
+                </label>
+                <label class="chooseTableButton">      
+                    <input type="checkbox" onclick="changeColor7(this)" name="seat" class="hidden" value="4">
+                    <img id="grid" src="{% static 'img/grid.svg' %}" alt="5" width="32" height="32">
+                    <br><span class="filterName each">좌식</span>
+                </label>
+            </div>
+
+            <div class="filterSection-last">
+                <p class="filterName">상세 조건</p>
+
+                <label class="chooseOthers1">
+                    <span class="filterName each">콘센트</span>
+                    <input type="checkbox" name="others" class="checkbox" value="1">
+                </label>
+                <label class="chooseOthers1">
+                    <span class="filterName each">화상회의</span>
+                    <input type="checkbox" name="others" class="checkbox" value="1">
+                </label>
+                <p style="margin:15px;">
+                <label class="chooseOthers2">
+                    <span class="filterName each">미팅룸</span>
+                    <input type="checkbox" name="others" class="checkbox" value="1">
+                </label>
+                <label class="chooseOthers2">
+                    <span class="filterName each">흡연실</span>
+                    <input type="checkbox" name="others" class="checkbox" value="1">
+                </label>
+            </div>
+        </div>
+
+    </form>
+    
+    <script>
+        function changeColor1(t) {
+            tr = t.parentNode;
+            tr.style.color = (t.checked) ?"#FF6C0F" :"#7C7A7A";
+            document.getElementById("user-01").src = (t.checked) ?"{% static 'img/1user-01.svg' %}" :"{% static 'img/user-01.svg' %}";
+        }
+        function changeColor2(t) {
+            tr = t.parentNode;
+            tr.style.color = (t.checked) ?"#FF6C0F" :"#7C7A7A";
+            document.getElementById("user-02").src = (t.checked) ?"{% static 'img/1user-02.svg' %}" :"{% static 'img/user-02.svg' %}";
+        }
+        function changeColor3(t) {
+            tr = t.parentNode;
+            tr.style.color = (t.checked) ?"#FF6C0F" :"#7C7A7A";
+            document.getElementById("user-03").src = (t.checked) ?"{% static 'img/1user-03.svg' %}" :"{% static 'img/user-03.svg' %}";
+        }
+        function changeColor4(t) {
+            tr = t.parentNode;
+            tr.style.color = (t.checked) ?"#FF6C0F" :"#7C7A7A";
+            document.getElementById("circle").src = (t.checked) ?"{% static 'img/1circle.svg' %}" :"{% static 'img/circle.svg' %}";
+        }
+        function changeColor5(t) {
+            tr = t.parentNode;
+            tr.style.color = (t.checked) ?"#FF6C0F" :"#7C7A7A";
+            document.getElementById("square").src = (t.checked) ?"{% static 'img/1square.svg' %}" :"{% static 'img/square.svg' %}";
+        }
+        function changeColor6(t) {
+            tr = t.parentNode;
+            tr.style.color = (t.checked) ?"#FF6C0F" :"#7C7A7A";
+            document.getElementById("left-seat").src = (t.checked) ?"{% static 'img/1left-seat.svg' %}" :"{% static 'img/left-seat.svg' %}";
+        }
+        function changeColor7(t) {
+            tr = t.parentNode;
+            tr.style.color = (t.checked) ?"#FF6C0F" :"#7C7A7A";
+            document.getElementById("grid").src = (t.checked) ?"{% static 'img/1grid.svg' %}" :"{% static 'img/grid.svg' %}";
+        }
+        
+        function reset() {
+            location.reload(true);
+        }
+    </script>
+
+</body>
+<script>
+
+    $(document).ready(function(){
+            $("#filter").hide();
+            $("#filterOn").show();
+ 
+            $("#filter").click(function(){
+                $("#filter").show();
+                $("#filterOn").hide();
+            });
+ 
+            $("#filterOn").click(function(){
+                $("#filter").hide();
+                $("#filterOn").show();
+            });
+        });
+</script>
+</html>

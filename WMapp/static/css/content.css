@@ -1,0 +1,32 @@
+
+.placeName{
+    color:black;
+    font-size:15px;
+    margin: 10px;
+}
+.placePhoto{
+    width: 120px;
+    height: 120px;
+    margin:10px;
+}
+
+.cafeimg{
+    width:120px;
+    height:120px;
+}
+
+.placeKeyword{
+    color:grey;
+    margin:10px;
+}
+.placeTime{
+    color:rgb(141,198,63);
+    margin:10px;
+    margin-bottom: 0px;
+}
+
+.placeDistance{
+    color:#7C7A7A;
+    margin:10px;
+    margin-top:0px;
+}
