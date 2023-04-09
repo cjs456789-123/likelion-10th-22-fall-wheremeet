@@ -86,20 +86,20 @@
 
 ---
 ### 메인화면
-
+&nbsp;&nbsp;
 ![WM_main](https://user-images.githubusercontent.com/77216812/230776223-f6b57c82-7b0a-4be3-96be-87e2554f5441.png)
 
 
 ### 필터화면
-
+&nbsp;&nbsp;
 ![WM_filter](https://user-images.githubusercontent.com/77216812/230776226-1065a26c-7124-456a-9b17-a8b78c36bc30.png)
 
 
 ### 지도화면
-
+&nbsp;&nbsp;
 ![WM_map](https://user-images.githubusercontent.com/77216812/230776228-3b39aa6a-f01c-442e-8162-e3d1308355ad.png)
 
 
 ### 가게상세
-
+&nbsp;&nbsp;
 ![WM_detail](https://user-images.githubusercontent.com/77216812/230776230-e7a66800-b78f-4897-a7b6-06bb7dc432a2.png)
